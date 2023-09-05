@@ -33,7 +33,6 @@ class Conexao {
     Verifica se já existe uma instância da conexão, caso não, configura uma nova conexão  
     */  
     public static function getInstance() {  
-        //echo "<script>location.reload();</script>";
         if (!isset(self::$conn)) {  
             try {  
                 $opcoes = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8', PDO::ATTR_PERSISTENT => TRUE);
@@ -43,10 +42,6 @@ class Conexao {
                 if (!isset($_SESSION)){session_start();}
                 session_destroy();
                 echo "#erro_bd";
-                //header('Location: /paginas/login/logout.php');
-                //header("Location: /index.php");
-                //header('Refresh: 0; url = index.php');
-                //echo "<script>location.reload();</script>";
             }  
         }  
         return self::$conn;  

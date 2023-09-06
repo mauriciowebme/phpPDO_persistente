@@ -34,13 +34,10 @@ class Conexao {
     */  
     public static function getInstance() {  
         if (!isset(self::$conn)) {  
-            try {  
+            try {
                 $opcoes = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8', PDO::ATTR_PERSISTENT => TRUE);
                 self::$conn = new PDO( 'mysql:host=' . HOST . '; dbname=' . DBNAME . "; charset=" . CHARSET . ";", USER, PASSWORD, $opcoes);
-            } catch (PDOException $e) {  
-                //print "Erro: " . $e->getMessage();  
-                if (!isset($_SESSION)){session_start();}
-                session_destroy();
+            } catch (PDOException $e) {
                 echo "#erro_bd";
             }  
         }  

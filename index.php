@@ -1,6 +1,7 @@
 <?php
 require_once "conexao.php"; 
 $conn = Conexao::getInstance();
+
 $sql = "
     SELECT *
     FROM tabela;
